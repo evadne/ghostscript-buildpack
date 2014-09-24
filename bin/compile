@@ -10,6 +10,7 @@ cd $BUILD_DIR
 
 if ! [ -f "$BUNDLE" ]; then
   echo "       Downloading built binary"
+  mkdir -p $CACHE_DIR
   curl https://api.anvilworks.org/slugs/f8b75233-3a3c-4f55-a269-dc813240ebbc.tgz \
     -o $BUNDLE \
     -s -ssl3
