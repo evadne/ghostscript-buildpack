@@ -2,7 +2,13 @@
 
 echo "-----> Installing GhostScript 9.15"
 cd $1
-curl https://api.anvilworks.org/slugs/f8b75233-3a3c-4f55-a269-dc813240ebbc.tgz -s -o ghostscript.tar.gz -ssl3
+
+if ! [ -f $CACHE_DIR/ghostscript-9.15.tar.gz ]; then
+  echo "       Downloading built binary"
+  curl https://api.anvilworks.org/slugs/f8b75233-3a3c-4f55-a269-dc813240ebbc.tgz \
+    -o $CACHE_DIR/ghostscript-9.15.tar.gz \
+    -s -ssl3
+fi
+
 mkdir -p vendor/ghostscript
-tar -C vendor/ghostscript --strip=2 -xvf ghostscript.tar.gz 
-rm ghostscript.tar.gz
+tar -C vendor/ghostscript --strip=2 -xf $CACHE_DIR/ghostscript.tar.gz
