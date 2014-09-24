@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
 BUNDLE="$CACHE_DIR/ghostscript-9.15-f8b75233-3a3c-4f55-a269-dc813240ebbc.tar.gz"
 
 echo "-----> Installing GhostScript 9.15"
-cd $1
+cd $BUILD_DIR
 
 if ! [ -f "$BUNDLE" ]; then
   echo "       Downloading built binary"
