@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 
+BUNDLE="$CACHE_DIR/ghostscript-9.15-f8b75233-3a3c-4f55-a269-dc813240ebbc.tar.gz"
+
 echo "-----> Installing GhostScript 9.15"
 cd $1
 
-if ! [ -f $CACHE_DIR/ghostscript-9.15.tar.gz ]; then
+if ! [ -f "$BUNDLE" ]; then
   echo "       Downloading built binary"
   curl https://api.anvilworks.org/slugs/f8b75233-3a3c-4f55-a269-dc813240ebbc.tgz \
-    -o $CACHE_DIR/ghostscript-9.15.tar.gz \
+    -o $BUNDLE \
     -s -ssl3
 fi
 
 mkdir -p vendor/ghostscript
-tar -C vendor/ghostscript --strip=2 -xf $CACHE_DIR/ghostscript.tar.gz
+tar -C vendor/ghostscript --strip=2 -xf $BUNDLE > /dev/null
