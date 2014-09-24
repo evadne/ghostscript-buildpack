@@ -4,4 +4,5 @@ echo "-----> Installing GhostScript 9.15"
 cd $1
 curl https://api.anvilworks.org/slugs/f8b75233-3a3c-4f55-a269-dc813240ebbc.tgz -s -o ghostscript.tar.gz -ssl3
 mkdir -p vendor/ghostscript
-tar -C vendor -xvf ghostscript.tar.gz
+tar -C vendor/ghostscript --strip=2 -xvf ghostscript.tar.gz 
+rm ghostscript.tar.gz

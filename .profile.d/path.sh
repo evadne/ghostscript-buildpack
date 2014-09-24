@@ -1,0 +1,1 @@
+PATH=/app/vendor/ghostscript/bin:$PATH
