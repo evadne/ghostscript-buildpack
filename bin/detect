@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "GhostScript 9.15"
+exit 0
